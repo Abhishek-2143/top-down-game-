@@ -28,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        //transform.Translate(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);//time.deltaTime is time take to r
-        Rb_Body.AddForce(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);
-        Rb_Body.mass = _mass;
+        transform.Translate(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);//time.deltaTime is time take to r
+       // Rb_Body.AddForce(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);
+        //Rb_Body.mass = _mass;
     }
     
 
