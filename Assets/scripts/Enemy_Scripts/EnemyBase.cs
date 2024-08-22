@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour
     public float enemySize;
     public Transform enemyTarget;
     public float rotationspeed;
+    private float distanceToPlayer;
 
 
 
@@ -22,7 +23,7 @@ public class EnemyBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        distanceToPlayer= Vector3.Distance(transform.position, enemyTarget.position);   
 
         Vector3 direction = enemyTarget.position- transform.position;
 
