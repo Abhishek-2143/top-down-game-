@@ -149,6 +149,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ad111524-594a-4b20-bd43-aa5dce1418f0
     m_ActionName: PlayerGroundMovement/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7033655030220625185}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: IALoocking
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9e0c63b1-224b-4291-8821-e34f4caea5e8
+    m_ActionName: PlayerGroundMovement/lockAction[/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerGroundMovement
@@ -169,6 +185,7 @@ MonoBehaviour:
   movementSpeed: 1000
   forceAmount: 5000
   _mass: 20
+  TurnSpeed: 6
   Rb_Body: {fileID: 1516039628024111817}
 --- !u!54 &1516039628024111817
 Rigidbody:

@@ -7,14 +7,26 @@ public class PlayerMovement : MonoBehaviour
 {
     
     Vector2 MovementValue = Vector2.zero;
+    Vector2 loockingValue = Vector2.zero;
     public float movementSpeed = 0.5f;
     public float forceAmount = 1;
     public float _mass = 20;
+    public float TurnSpeed =1;
 
     public Rigidbody Rb_Body;
     public void IAAccelerate(InputAction.CallbackContext context)
     {
         MovementValue = context.ReadValue<Vector2>();//<vector2> is a carats
+        
+    }
+
+    public void IALoocking(InputAction.CallbackContext context)
+    {
+        loockingValue = context.ReadValue<Vector2>();
+       
+        Debug.Log(loockingValue);
+
+        transform.Rotate(transform.up, loockingValue.x * Time.deltaTime* TurnSpeed);
         
     }
     
