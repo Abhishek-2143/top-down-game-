@@ -5,9 +5,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public float enemySpeed;
-    public float enemyCurrentHealth;
-    public float enemyDamage;
-    public float enemySize;
+    
     public Transform enemyTarget;
     public float rotationspeed;
     private float distanceToPlayer;

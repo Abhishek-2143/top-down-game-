@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1888281556625321368}
   - component: {fileID: 6244108780736664056}
   - component: {fileID: 1130057954327129764}
+  - component: {fileID: 1982343884969061987}
   - component: {fileID: 7033655030220625185}
   - component: {fileID: 7815348039265757228}
   m_Layer: 0
@@ -164,6 +165,19 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerGroundMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1982343884969061987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724340773823180466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0bc0f90bc01774ebc2b40627663678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 500
 --- !u!114 &7033655030220625185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +194,7 @@ MonoBehaviour:
   movementSpeed: 50
   forceAmount: 10
   _mass: 20
-  TurnSpeed: 6
+  TurnSpeed: 20
   shootingFrequency: 1
   bulletSpwanTimer: 0
   Rb_Body: {fileID: 0}

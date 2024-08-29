@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5193913670679557470}
   - component: {fileID: 370298812874462320}
   - component: {fileID: 1817691763125549051}
+  - component: {fileID: 1238769246072436757}
   - component: {fileID: 3890045054126958470}
   m_Layer: 0
-  m_Name: enemy base
+  m_Name: Small enemy type 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,6 +107,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1238769246072436757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156913466376193047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0bc0f90bc01774ebc2b40627663678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  damage: 50
 --- !u!114 &3890045054126958470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,9 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea018a79b26ac394398e31cf47a3cb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 3
-  enemyCurrentHealth: 0
-  enemyDamage: 0
-  enemySize: 0.39
+  enemySpeed: 7.5
   enemyTarget: {fileID: 0}
   rotationspeed: 150

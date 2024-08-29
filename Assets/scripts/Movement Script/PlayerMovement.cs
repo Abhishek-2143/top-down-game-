@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         bulletshoot();
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     }*/
     public void bulletshoot()
     {
-        bulletspwanedEnemy = Instantiate(bulletPrefab, transform.position+transform.forward, Quaternion.identity);
+        bulletspwanedEnemy = Instantiate(bulletPrefab, transform.position+transform.forward, Quaternion.Euler(transform.forward));
     }
 
 
