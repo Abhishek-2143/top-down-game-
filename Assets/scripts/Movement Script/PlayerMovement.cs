@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float bulletSpwanTimer = 0f;
 
 
-
+    HealthAndDamage hdComponent;
 
     public Rigidbody Rb_Body;
     public void IAAccelerate(InputAction.CallbackContext context)
@@ -39,38 +39,52 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(transform.up, loockingValue.x * Time.deltaTime* TurnSpeed);
         
     }
-    public void IAShoot(InputAction.CallbackContext context)
+    /*public void IAShoot(InputAction.CallbackContext context)
+     {
+     if(context.started==true)
+     {
+      bulletshoot();
+     }
+
+     }*/
+    private void Awake()
     {
-        bulletshoot();
+        hdComponent=GetComponent<HealthAndDamage>();
     }
 
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
+     {
 
-        transform.Translate(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);//time.deltaTime is time take to r
-       // Rb_Body.AddForce(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);
-        //Rb_Body.mass = _mass;
-    }
-    /*private void FixedUpdate()
-    {
-        bulletSpwanTimer = bulletSpwanTimer + 0.02f;
-        if (bulletSpwanTimer >= shootingFrequency)
-        {
-            bulletSpwanTimer = 0;
-            
+     }
 
-        }
-    }*/
+     // Update is called once per frame
+     void Update()
+     {
+
+         transform.Translate(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);//time.deltaTime is time take to r
+        // Rb_Body.AddForce(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);
+         //Rb_Body.mass = _mass;
+     }
+      private void FixedUpdate()
+     {
+         bulletSpwanTimer = bulletSpwanTimer + 0.02f;
+         if (bulletSpwanTimer >= shootingFrequency)
+         {
+             bulletSpwanTimer = 0;
+             bulletshoot();
+
+         }
+     }
     public void bulletshoot()
     {
-        bulletspwanedEnemy = Instantiate(bulletPrefab, transform.position+transform.forward, Quaternion.Euler(transform.forward));
+        GameObject spawnedBullet;
+        Vector3 direction = (transform.forward*100f)-transform.position;
+        spawnedBullet = Instantiate(bulletPrefab, transform.position+transform.forward, Quaternion.identity);
+        spawnedBullet.GetComponent<baseBulletBehavior>().SetBulletDirection(direction);
+
+        spawnedBullet.GetComponent<baseBulletBehavior>().BulletDamage= hdComponent.damage;
+        
     }
 
 
