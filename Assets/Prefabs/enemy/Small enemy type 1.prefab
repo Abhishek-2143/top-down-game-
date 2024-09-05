@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1817691763125549051}
   - component: {fileID: 1238769246072436757}
   - component: {fileID: 3890045054126958470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small enemy type 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea018a79b26ac394398e31cf47a3cb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 7.5
+  enemySpeed: 3
   enemyTarget: {fileID: 0}
   rotationspeed: 150

@@ -22,15 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "shoot",
-                    "type": "Button",
-                    "id": "d05bdfe4-b0de-416b-bc79-d071ceb125a5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -92,22 +83,11 @@
                 {
                     "name": "",
                     "id": "78ebc473-bee5-404f-9833-ad9b840c360f",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "lockAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f48c2a80-4466-4dad-8569-f2930b8a548b",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

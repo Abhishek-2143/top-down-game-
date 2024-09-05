@@ -5,88 +5,107 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
-    Vector2 MovementValue = Vector2.zero;
-    Vector2 loockingValue = Vector2.zero;
+    private Vector2 movementValues = Vector2.zero;
+    private Vector2 lookingValues = Vector2.zero;
+
     public GameObject bulletPrefab;
- 
-    private GameObject bulletspwanedEnemy;
+    public float frameDistance = 100f;
 
-    private Vector3 bulletSpwanPosition;
-    public float movementSpeed = 0.5f;
-    public float forceAmount = 1;
-    public float _mass = 20;
-    public float TurnSpeed =1;
-    public float shootingFrequency= 1f;
-    public float bulletSpwanTimer = 0f;
+    private HealthAndDamage hdComponent;
 
+    public Vector3 hitLocation;
 
-    HealthAndDamage hdComponent;
+    public bool canShoot = true;
+    public float shootingCooldownTimer = 0.5f;
+    public float SpwanTimer;
 
-    public Rigidbody Rb_Body;
     public void IAAccelerate(InputAction.CallbackContext context)
     {
-        MovementValue = context.ReadValue<Vector2>();//<vector2> is a carats
-        
+        movementValues = context.ReadValue<Vector2>();
     }
 
-    public void IALoocking(InputAction.CallbackContext context)
+    public void IALooking(InputAction.CallbackContext context)
     {
-        loockingValue = context.ReadValue<Vector2>();
-       
-        Debug.Log(loockingValue);
-
-        transform.Rotate(transform.up, loockingValue.x * Time.deltaTime* TurnSpeed);
-        
+        lookingValues = context.ReadValue<Vector2>();
     }
-    /*public void IAShoot(InputAction.CallbackContext context)
-     {
-     if(context.started==true)
-     {
-      bulletshoot();
-     }
 
-     }*/
+    public void IAShoot(InputAction.CallbackContext context)
+    {
+       // if (context.started == true)
+       // {
+       //     Shoot();
+       // }
+    }
+
     private void Awake()
     {
-        hdComponent=GetComponent<HealthAndDamage>();
+        hdComponent = gameObject.GetComponent<HealthAndDamage>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-     {
-
-     }
-
-     // Update is called once per frame
-     void Update()
-     {
-
-         transform.Translate(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);//time.deltaTime is time take to r
-        // Rb_Body.AddForce(MovementValue.x * movementSpeed * Time.deltaTime, 0, MovementValue.y * movementSpeed * Time.deltaTime);
-         //Rb_Body.mass = _mass;
-     }
-      private void FixedUpdate()
-     {
-         bulletSpwanTimer = bulletSpwanTimer + 0.02f;
-         if (bulletSpwanTimer >= shootingFrequency)
-         {
-             bulletSpwanTimer = 0;
-             bulletshoot();
-
-         }
-     }
-    public void bulletshoot()
+    void FixedUpdate()
     {
-        GameObject spawnedBullet;
-        Vector3 direction = (transform.forward*100f)-transform.position;
-        spawnedBullet = Instantiate(bulletPrefab, transform.position+transform.forward, Quaternion.identity);
-        spawnedBullet.GetComponent<baseBulletBehavior>().SetBulletDirection(direction);
-
-        spawnedBullet.GetComponent<baseBulletBehavior>().BulletDamage= hdComponent.damage;
-        
+        SpwanTimer = SpwanTimer + 0.02f; // spwan timer = 1 sec
+        if (SpwanTimer >= shootingCooldownTimer)
+        {
+            SpwanTimer = 0;
+            Shoot();
+        }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        // movement
+        // The reason I'm using this method is because transform.translate moves the player relative to its position and rotation.
+        // This method moves the player relative to its position and does not take rotation into account
+        // I find this method to be better during gameplay
+        transform.position += new Vector3(movementValues.x * frameDistance * Time.deltaTime, 0, movementValues.y * frameDistance * Time.deltaTime);
+
+        // Check where the mouse is pointing
+        ProjectMouseToWorld();
+        // Look at the mouse pointer
+        transform.LookAt(hitLocation);
+    }
+
+    private void ProjectMouseToWorld()
+    {
+        Ray r = Camera.main.ScreenPointToRay(lookingValues);
+
+        Plane playerPlane = new Plane(Vector3.up, transform.position);
+
+        float entryDistance;
+
+        if (playerPlane.Raycast(r, out entryDistance))
+        {
+            hitLocation = r.GetPoint(entryDistance);
+        }
+    }
+
+    public void Shoot()
+    {
+        if (!canShoot)
+        {
+            return;
+        }
+
+        GameObject spawnedBullet;
+        Vector3 direction = (hitLocation - transform.position).normalized;
+        spawnedBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        spawnedBullet.GetComponent<baseBulletBehavior>().SetBulletDirection(direction);
+        spawnedBullet.GetComponent<baseBulletBehavior>().bulletDamage = hdComponent.damage;
+
+        canShoot = false;
+        StartCoroutine(ShootingCooldown(shootingCooldownTimer));
+    }
+
+    // Coroutine to destroy the bullet after a specified number of seconds
+    IEnumerator ShootingCooldown(float seconds)
+    {
+        // Waits for the specified number of seconds
+        yield return new WaitForSeconds(seconds);
+
+        canShoot = true;
+    }
 
 
 }
