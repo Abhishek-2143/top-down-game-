@@ -277,7 +277,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0f47afe8c3c71564689b1c4dc5a98b25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 519621179}
   enemyToSpawn: {fileID: 2156913466376193047, guid: 10014ccb54753d740997c257912ece44, type: 3}
-  enemySpwanFrequency: 5
+  enemySpwanFrequency: 3
   SpwanTimer: 0
   actualSpawnRadius: 0
   actualSpawnAngle: 0
