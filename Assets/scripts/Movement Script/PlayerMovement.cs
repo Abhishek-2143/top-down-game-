@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canShoot = true;
     public float shootingCooldownTimer = 0.5f;
     public float SpwanTimer;
+    public static PlayerMovement Instance; 
 
     public void IAAccelerate(InputAction.CallbackContext context)
     {
@@ -39,7 +41,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         hdComponent = gameObject.GetComponent<HealthAndDamage>();
+
     }
 
     void FixedUpdate()
@@ -105,6 +112,10 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(seconds);
 
         canShoot = true;
+    }
+    public void playerMovementDamageTakenSingle(float damage)
+    {
+
     }
 
 

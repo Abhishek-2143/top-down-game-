@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1817691763125549051}
   - component: {fileID: 1238769246072436757}
   - component: {fileID: 3890045054126958470}
+  - component: {fileID: -9220026662355140041}
   m_Layer: 6
   m_Name: Small enemy type 1
   m_TagString: Untagged
@@ -119,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0bc0f90bc01774ebc2b40627663678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 500
   Health: 100
   damage: 50
 --- !u!114 &3890045054126958470
@@ -136,3 +138,16 @@ MonoBehaviour:
   enemySpeed: 3
   enemyTarget: {fileID: 0}
   rotationspeed: 150
+  distanceToPlayer: 0
+--- !u!114 &-9220026662355140041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156913466376193047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8e788a18dcd0c41bc67c17286fafd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

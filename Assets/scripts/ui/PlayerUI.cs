@@ -15,6 +15,11 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateHealthBar(float NewHealthRatio)
     {
+        HealthBar.fillAmount = NewHealthRatio;
+    }
+    public void NormalFunction() 
+    { 
 
     }
+
 }
