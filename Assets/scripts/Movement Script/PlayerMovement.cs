@@ -33,10 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void IAShoot(InputAction.CallbackContext context)
     {
-       // if (context.started == true)
-       // {
-       //     Shoot();
-       // }
+        //if (context.started == true)
+        //{
+        //   Shoot();
+        //}
     }
 
     private void Awake()
