@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -35,5 +36,10 @@ public class EnemyBase : MonoBehaviour
 
         transform.position=transform.position+ (transform.forward * enemySpeed * Time.deltaTime);
 
+    }
+
+    private void OnDestroy()
+    {
+        //Instantiate(xpobject, transform.position, transform.rotation);
     }
 }

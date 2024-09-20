@@ -38,7 +38,7 @@ public class baseBulletBehavior : MonoBehaviour
         Vector3 rayStart = transform.position - movement;
 
         // Calculates the distance the raycast should check (the distance the bullet moved this frame)
-        float rayDistance = movement.magnitude * 1.5f;
+        float rayDistance = movement.magnitude * 1.1f;
 
         // Creates a new Ray starting from rayStart and going in the bullet's direction
         Ray ray = new Ray(rayStart, direction);
