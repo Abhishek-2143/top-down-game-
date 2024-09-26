@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickableObject : MonoBehaviour
+public class PickableOpjectXP : PickableObjecBase
 {
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,14 @@ public class PickableObject : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    public override void TriggerResponse(Collider _other)
     {
-        if (other.gameObject == PlayerMovement.Instance.gameObject) 
+        base.TriggerResponse(_other);
+
+        if (_other.gameObject==PlayerMovement.Instance.gameObject)
         {
-            PlayerMovement.Instance.PlayerSpeed = 15;
+            PlayerMovement.Instance.XP += 5;
         }
+
     }
 }

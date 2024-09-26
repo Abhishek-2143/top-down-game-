@@ -19,7 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public bool canShoot = true;
     public float shootingCooldownTimer = 0.5f;
     public float SpwanTimer;
-    public static PlayerMovement Instance; 
+    public static PlayerMovement Instance;
+    public float XP;
 
     public void IAAccelerate(InputAction.CallbackContext context)
     {
@@ -97,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
         GameObject spawnedBullet;
         Vector3 direction = (hitLocation - transform.position).normalized;
-        spawnedBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        spawnedBullet = Instantiate(bulletPrefab, transform.position + transform.forward, Quaternion.identity);
         spawnedBullet.GetComponent<baseBulletBehavior>().SetBulletDirection(direction);
         spawnedBullet.GetComponent<baseBulletBehavior>().bulletDamage = hdComponent.damage;
 

@@ -8,7 +8,7 @@ public class ET1_Attack : MonoBehaviour
 
     private float TimerValue;
     public float attackCooldown;
-    private bool canAttack;
+    private bool canAttack = false;
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class ET1_Attack : MonoBehaviour
     void Update()
     {
     
-        if (baseEnemyScript.distanceToPlayer<0.3f&& canAttack == true) 
+        if (baseEnemyScript.distanceToPlayer<1f && canAttack == true) 
         {
             // baseEnemyScript.enemyTarget.GetComponent<HealthAndDamage>().AcceptDamage();
             float outGoingDamage = GetComponent<HealthAndDamage>().damage;

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HealthAndDamage : MonoBehaviour
 {
-    public float MaxHealth = 500f;
-    public float Health=100f;
-    public float damage= 10f;
+    public float MaxHealth ;
+    public float Health;
+    public float damage;
 
     // public delegate void DammageTaken(float damageTaken);
     //public DammageTaken del_damageTaken;
@@ -58,7 +58,7 @@ public class HealthAndDamage : MonoBehaviour
         }
         Health -=incomingDamage;
 
-        if (Health < 0)
+        if (Health <= 0)
         {
             death();
         }

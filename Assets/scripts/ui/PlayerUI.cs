@@ -13,9 +13,9 @@ public class PlayerUI : MonoBehaviour
         HealthBar.fillAmount = GetComponent<HealthAndDamage>().GetHealthRatio();
     }
 
-    public void UpdateHealthBar(float NewHealthRatio)
+    public void UpdateHealthBar(float HealthRatio)
     {
-        HealthBar.fillAmount = NewHealthRatio;
+        HealthBar.fillAmount = HealthRatio;
     }
     public void NormalFunction() 
     { 
