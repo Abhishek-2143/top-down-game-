@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement Instance;
     public float XP;
 
+    public GameObject Muzzle_Flash_VFX;
+    public GameObject Muzzle_location;
+
     public void IAAccelerate(InputAction.CallbackContext context)
     {
         movementValues = context.ReadValue<Vector2>();
@@ -98,12 +101,13 @@ public class PlayerMovement : MonoBehaviour
 
         GameObject spawnedBullet;
         Vector3 direction = (hitLocation - transform.position).normalized;
-        spawnedBullet = Instantiate(bulletPrefab, transform.position + transform.forward, Quaternion.identity);
+        spawnedBullet = Instantiate(bulletPrefab, Muzzle_location.transform.position , Quaternion.identity);
         spawnedBullet.GetComponent<baseBulletBehavior>().SetBulletDirection(direction);
         spawnedBullet.GetComponent<baseBulletBehavior>().bulletDamage = hdComponent.damage;
 
         canShoot = false;
         StartCoroutine(ShootingCooldown(shootingCooldownTimer));
+        GameObject muzzleVFX = Instantiate(Muzzle_Flash_VFX, Muzzle_location.transform.position , transform.rotation);
     }
 
     // Coroutine to destroy the bullet after a specified number of seconds
