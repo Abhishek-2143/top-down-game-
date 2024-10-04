@@ -19,7 +19,7 @@ public class baseBulletBehavior : MonoBehaviour
     {
         // Starts a coroutine to destroy the bullet after 5 seconds
        // StartCoroutine(DestroyAfterSeconds(5f));
-       Destroy(gameObject,5f);
+       Destroy(gameObject,2f);
     }
 
     // Update is called once per frame

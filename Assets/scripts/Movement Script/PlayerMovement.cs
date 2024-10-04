@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.ParticleSystem;
+
 
 public class PlayerMovement : MonoBehaviour
 {
     private Vector2 movementValues = Vector2.zero;
     private Vector2 lookingValues = Vector2.zero;
+    private HealthAndDamage hdComponent;
+    private ParticleSystem muzzleParticleSystem;
 
     public GameObject bulletPrefab;
     public float PlayerSpeed = 100f;
-
-    private HealthAndDamage hdComponent;
-
     public Vector3 hitLocation;
-
     public bool canShoot = true;
     public float shootingCooldownTimer = 0.5f;
     public float SpwanTimer;
@@ -51,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
         }
         hdComponent = gameObject.GetComponent<HealthAndDamage>();
 
+        GameObject muzzleVFXobject = Instantiate(Muzzle_Flash_VFX, Muzzle_location.transform.position, transform.rotation);
+        muzzleParticleSystem = muzzleVFXobject.GetComponent<ParticleSystem>();
+        muzzleParticleSystem.Stop();
+        muzzleParticleSystem.transform.SetParent(transform);
     }
 
     void FixedUpdate()
@@ -107,7 +112,11 @@ public class PlayerMovement : MonoBehaviour
 
         canShoot = false;
         StartCoroutine(ShootingCooldown(shootingCooldownTimer));
-        GameObject muzzleVFX = Instantiate(Muzzle_Flash_VFX, Muzzle_location.transform.position , transform.rotation);
+
+        EmitParams emitParams = new EmitParams();
+        emitParams.position = muzzleParticleSystem.transform.position;
+
+        muzzleParticleSystem.Emit(1);
     }
 
     // Coroutine to destroy the bullet after a specified number of seconds
