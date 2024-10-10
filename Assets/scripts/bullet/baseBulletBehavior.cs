@@ -67,6 +67,8 @@ public class baseBulletBehavior : MonoBehaviour
                 // Applies damage to the hit enemy
                 hitComponentHealth.AcceptDamage(bulletDamage);
 
+                LevelManagers.Instance.SpawnBloodParticleAtLocation(rayHit.transform.position);
+
                 // Destroys the bullet game object
                 Destroy(gameObject);
             }

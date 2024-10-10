@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class LevelManagers : MonoBehaviour
 {
+    public static LevelManagers Instance;
+
     public Transform Player;
     public GameObject enemyToSpawn;
     private Vector3 enemySpwanPosition;
@@ -19,12 +22,22 @@ public class LevelManagers : MonoBehaviour
     public float maxSpawnRadius;
     public float minSpawnRadius;
     
+    public ParticleSystem BloodParticlesPrefab;
+    private ParticleSystem spawndBloodParticlesSystem;
 
+   
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        if (Instance == null && Instance != this)
+        {
+            Instance = this;
+        }
+    }
+        // Start is called before the first frame update
+        void Start()
+    {
+        spawndBloodParticlesSystem = Instantiate(BloodParticlesPrefab); 
     }
 
     // Update is called once per frame
@@ -53,5 +66,16 @@ public class LevelManagers : MonoBehaviour
         spwanedEnemy.GetComponent<EnemyBase>().enemyTarget = Player;
 
     }
+     
+    public void SpawnBloodParticleAtLocation(Vector3 Location)
+    {
+        EmitParams bloodEmitParams = new EmitParams();
+        bloodEmitParams.position = Location;
+ 
+        spawndBloodParticlesSystem.Emit(bloodEmitParams,3);
+        Debug.Log("Die");
+        
+    }
+    
 
 }

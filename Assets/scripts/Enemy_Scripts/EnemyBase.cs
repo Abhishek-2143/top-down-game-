@@ -40,6 +40,7 @@ public class EnemyBase : MonoBehaviour
 
     private void OnDestroy()
     {
+       
         //Instantiate(xpobject, transform.position, transform.rotation);
     }
 }

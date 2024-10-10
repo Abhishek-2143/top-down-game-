@@ -67,6 +67,7 @@ public class HealthAndDamage : MonoBehaviour
 
     public void death()
     {
+       
         Debug.Log("enemy dies");
         Destroy(gameObject);
     }
