@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.ParticleSystem;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -43,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
         //   Shoot();
         //}
     }
+    public void IAPause (InputAction.CallbackContext context)
+    {
+        PauseMenuManager.Instance.ToggleGamePause();
+    }
 
     private void Awake()
     {
@@ -56,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         muzzleParticleSystem = muzzleVFXobject.GetComponent<ParticleSystem>();
         muzzleParticleSystem.Stop();
         muzzleParticleSystem.transform.SetParent(transform);
+        
     }
 
     void FixedUpdate()
@@ -81,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         ProjectMouseToWorld();
         // Look at the mouse pointer
         transform.LookAt(hitLocation);
+        
     }
 
     private void ProjectMouseToWorld()
@@ -131,6 +138,6 @@ public class PlayerMovement : MonoBehaviour
     {
 
     }
-
-
+    
+   
 }
