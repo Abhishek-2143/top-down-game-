@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lookingValues = Vector2.zero;
     private HealthAndDamage hdComponent;
     private ParticleSystem muzzleParticleSystem;
+    private bool 
 
     public GameObject bulletPrefab;
     public float PlayerSpeed = 100f;
@@ -27,9 +28,22 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Muzzle_Flash_VFX;
     public GameObject Muzzle_location;
 
+    public AudioSource gunSotsAudioSource;
+    public AudioSource footstepAudioSource;
+
     public void IAAccelerate(InputAction.CallbackContext context)
     {
         movementValues = context.ReadValue<Vector2>();
+
+        if (context.started == true)
+        {
+            Debug.Log("contex Started" + context.started);
+        }
+        if (context.canceled == true)
+        {
+            Debug.Log("contex stop" + context.started);
+        }
+
     }
 
     public void IALooking(InputAction.CallbackContext context)
@@ -88,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
         // Look at the mouse pointer
         transform.LookAt(hitLocation);
         
+        
     }
 
     private void ProjectMouseToWorld()
@@ -124,6 +139,8 @@ public class PlayerMovement : MonoBehaviour
         emitParams.position = muzzleParticleSystem.transform.position;
 
         muzzleParticleSystem.Emit(1);
+
+        gunSotsAudioSource.Play();
     }
 
     // Coroutine to destroy the bullet after a specified number of seconds
