@@ -35,8 +35,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.32, y: 1, z: -3.39}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7750578039586213301}
   - {fileID: 6115774478673227672}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 190621279841052693, guid: 84db964c752f3b04c947e17c2a784f97, type: 3}
-  PlayerSpeed: 8
+  PlayerSpeed: 80
   hitLocation: {x: 0, y: 0, z: 0}
   canShoot: 1
   shootingCooldownTimer: 0.35
@@ -268,7 +268,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dbd909bc40889ac4a977386c45883cdf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9098938cbc42a3d46b1a13ca81027b17, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

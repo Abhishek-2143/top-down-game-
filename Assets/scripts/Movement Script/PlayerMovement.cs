@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lookingValues = Vector2.zero;
     private HealthAndDamage hdComponent;
     private ParticleSystem muzzleParticleSystem;
-    private bool 
+    
 
     public GameObject bulletPrefab;
     public float PlayerSpeed = 100f;
