@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3890045054126958470}
   - component: {fileID: 1238769246072436757}
   - component: {fileID: -9220026662355140041}
+  - component: {fileID: 391067748089428345}
   m_Layer: 6
   m_Name: Small enemy type 1
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,10 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea018a79b26ac394398e31cf47a3cb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 30
+  enemySpeed: 3
   enemyTarget: {fileID: 0}
   rotationspeed: 150
-  distanceToPlayer: 0
+  distanceToPlayer: 1
 --- !u!114 &1238769246072436757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,4 +152,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8e788a18dcd0c41bc67c17286fafd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
+  attackCooldown: 0.5
+--- !u!54 &391067748089428345
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156913466376193047}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0

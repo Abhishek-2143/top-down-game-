@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.32, y: 1, z: -3.39}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7750578039586213301}
@@ -206,10 +206,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 190621279841052693, guid: 84db964c752f3b04c947e17c2a784f97, type: 3}
-  PlayerSpeed: 80
+  PlayerSpeed: 8
   hitLocation: {x: 0, y: 0, z: 0}
   canShoot: 1
-  shootingCooldownTimer: 0.35
+  shootingCooldownTimer: 0.5
   SpwanTimer: 0
   XP: 0
   Muzzle_Flash_VFX: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
@@ -276,7 +276,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 164
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 20
