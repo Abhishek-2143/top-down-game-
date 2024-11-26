@@ -11,6 +11,7 @@ public class PauseMenuManager : MonoBehaviour
     public static PauseMenuManager Instance;
     public Button ResumeBotton;
     public Button QuitToMainMenuBotton;
+    
     public GameObject PauseMenuCanvas;
    
 
@@ -26,6 +27,7 @@ public class PauseMenuManager : MonoBehaviour
 
         QuitToMainMenuBotton.onClick.AddListener(() => onQuitToMainMenuBottonPressed());
 
+        
     }
     
     public void onQuitToMainMenuBottonPressed()
@@ -58,4 +60,5 @@ public class PauseMenuManager : MonoBehaviour
         }
         
     }
+   
 }
